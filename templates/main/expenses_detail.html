@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+{%block content%}
+<div class="sales-boxes">
+	<div class="recent-sales box">
+        
+        <table class="table">
+            <div class="card text-center">
+             <h3>Expense Details</h3>
+            </div>
+            
+            <th>Item</th><td>{{item.item}}</td><tr>
+            <th> Quantity </th><td>{{item.quantity}}</td><tr>
+            <th>Descriptions</th><td>{{item.descriptions}}</td><tr>
+            <th>Cost</th><td>{{item.cost}}</td><tr>
+            <th>Supplier</th><td>{{item.supplier}}</td><tr>
+            <th>Date</th><td>{{item.date}}</td><tr>
+            
+        </table>
+        
+            <a class="btn btn-primary btn-primary" href="{% url 'expense-update' item.id %}">Update</a>
+            <a class="btn btn-danger" href="{% url 'delete-expense' item.id %}">delete</a>
+      
+    </div>
+</div>
+
+  {%endblock%}

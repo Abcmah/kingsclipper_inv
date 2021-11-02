@@ -1,0 +1,1 @@
+web: gunicorn kings_inv.wsgi --log-file -

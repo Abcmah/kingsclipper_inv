@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+   <div style="margin-bottom: 15%;" class="sales-boxes">
+    <div class="recent-sales box">
+      <div class="table-responsive">
+        <div class="card">
+          <a href="{% url 'create-emspending' %}" class="btn btn-info" >add</a>
+        </div>
+        <table class="table">
+        <header>
+          <th>Name</th>
+          <th>Amount</th>
+          <th>Status</th>
+          <th>Repayment</th>
+          <th>Date Ordered</th>
+          <th></th>
+         </header>
+         <tr>
+          {% if emObj %}
+          {%for i in emObj %}
+           <td>{{i.name}}</td>
+           <td>{{i.amount}}</td>
+           <td>{{i.paid}}</td>
+           <td>{{i.date_issued}}</td>
+           <td>{{i.date_repay}}</td>
+           <td><a class="btn btn-sm btn-primary" href="{% url 'updateEmp' i.id %}">update</a></td>
+           <td><a class="btn btn-danger btn-circle btn-sm" href="{% url 'deleteEmp' i.id%}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg></a></td>
+           <tr>
+           {% endfor %}
+           {%else%}
+           <td colspan="5"><center>No records found</center></td>
+           {%endif%}
+        </table>
+      </div>    
+      </div>
+    </div>
+{% endblock %}

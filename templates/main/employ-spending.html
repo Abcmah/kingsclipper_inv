@@ -1,0 +1,23 @@
+{%extends "base.html"%}
+{%block content%}
+<div class="sales-boxes">
+	<div class="recent-sales box">
+	<form method="post">
+		{% csrf_token %}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-4">Spendings</legend>
+			{{ form.as_p  }}
+		</fieldset>
+		<div class="form-group">
+		    <button class="btn btn-success">post</button>
+	    </div>
+		
+	</form>
+</div>
+</div>
+<script type="text/javascript" charset="utf-8">
+ var input = document.getElementsByTagName('input');
+ input[4].type="date"
+ console.log(input[4])
+</script>
+{%endblock %}
